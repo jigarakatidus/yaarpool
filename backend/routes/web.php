@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/establishments', function () {
+        return view('yaarpool.establishments', [
+            'user' => Auth::user(),
+        ]);
+    })->name('establishments');
+    // Route::get('/routes', function () {
+    //     return view('routes');
+    // })->name('routes');
 });
